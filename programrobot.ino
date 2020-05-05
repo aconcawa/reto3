@@ -14,20 +14,41 @@ void par() { //subrutina para parar el robot
   analogWrite(izq, 0);
 }
 
-void ade() { //subrutina andar hacia delante
-  analogWrite(der, vel);
-  analogWrite(ziq, vel);
+#include <IRremote.h>
+
+int RECV_PIN = 9;
+int izqA=3;
+int derA=2;
+int vel = HIGH;
+
+IRrecv irrecv(RECV_PIN);
+
+decode_results results;
+
+void par() { //subrutina para parar el robot
+  analogWrite(derA, 0);
+  analogWrite(izqA, 0);
 }
 
-void der() {
-  analogWrite(der, 0);
-  analogWrite(izq, vel);
+void ade() { //subrutina andar hacia delante
+  analogWrite(derA, vel);
+  analogWrite(izqA, vel);
+}
 
+void der() { //subrunita girar derecha
+  analogWrite(derA, 0);
+  analogWrite(izqA, vel);
+}
+
+void izq(){ //subrutina girar izquierda
+  analogWrite(derA, vel);
+  analogWrite(izqA, 0);
+}
 
 void setup()
 {
-  pinMode (izq, OUTPUT);
-  pinMode (der, OUTPUT);
+  pinMode (izqA, OUTPUT);
+  pinMode (derA, OUTPUT);
   Serial.begin(9600);
   // In case the interrupt driver crashes on setup, give a clue
   // to the user what's going on.
@@ -44,10 +65,9 @@ void loop() {
   delay(100);
  
   if (results.value==0xFD00FF){ //Parado
-    par;
+    par();
   }
   if (results.value==0xFD30CF){ //Desde la primera parada
-    digitalWrite(izquierda,HIGH);
-    digitalWrite(derecha,HIGH);
+    ade();
   }
 }
