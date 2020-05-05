@@ -1,8 +1,8 @@
 #include <IRremote.h>
 
 int RECV_PIN = 9;
-int izq=3;
-int der=2;
+int izqA=5;
+int derA=3;
 int vel = 125;
 
 IRrecv irrecv(RECV_PIN);
@@ -10,39 +10,23 @@ IRrecv irrecv(RECV_PIN);
 decode_results results;
 
 void par() { //subrutina para parar el robot
-  analogWrite(der, 0);
-  analogWrite(izq, 0);
-}
-
-#include <IRremote.h>
-
-int RECV_PIN = 9;
-int izqA=3;
-int derA=2;
-int vel = HIGH;
-
-IRrecv irrecv(RECV_PIN);
-
-decode_results results;
-
-void par() { //subrutina para parar el robot
-  analogWrite(derA, 0);
-  analogWrite(izqA, 0);
+  digitalWrite(derA, 0);
+  digitalWrite(izqA, 0);
 }
 
 void ade() { //subrutina andar hacia delante
-  analogWrite(derA, vel);
-  analogWrite(izqA, vel);
+  digitalWrite(derA, vel);
+  digitalWrite(izqA, vel);
 }
 
 void der() { //subrunita girar derecha
-  analogWrite(derA, 0);
-  analogWrite(izqA, vel);
+  digitalWrite(derA, 0);
+  digitalWrite(izqA, vel);
 }
 
 void izq(){ //subrutina girar izquierda
-  analogWrite(derA, vel);
-  analogWrite(izqA, 0);
+  digitalWrite(derA, vel);
+  digitalWrite(izqA, 0);
 }
 
 void setup()
