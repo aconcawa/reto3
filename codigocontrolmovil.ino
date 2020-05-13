@@ -94,7 +94,7 @@ void loop()  {
     analogWrite(derB, vel);  
     analogWrite(izqB, vel);      
   }
-  if(estado=='rut1'){
+  if(estado=='z'){
     ade();
     delay(60000);
     der();
@@ -131,7 +131,7 @@ void loop()  {
     delay(55000);
     par();
   }
-  if(estado=='rut2'){
+  if(estado=='x'){
     ade();
     delay(58000);
     der();
@@ -164,7 +164,7 @@ void loop()  {
     delay(55000);
     par();
   }
-  if(estado=='rut3'){
+  if(estado=='c'){
     ade();
     delay(36000);
     izq();
@@ -193,7 +193,7 @@ void loop()  {
     delay(55000);
     par();
   }
-  if(estado=='rut4'){
+  if(estado=='v'){
     ade();
     delay(60000);
     der();
@@ -218,7 +218,7 @@ void loop()  {
     delay(55000);
     par();
   }
-  if(estado=='rut5'){
+  if(estado=='n'){
     ade();
     delay(39000);
     der();
@@ -239,7 +239,7 @@ void loop()  {
     delay(55000);
     par();
   }
-  if(estado=='rut6'){
+  if(estado=='m'){
     ade();
     delay(53000);
     izq();
@@ -256,7 +256,7 @@ void loop()  {
     delay(55000);
     par();
   }
-  if(estado=='rut7'){
+  if(estado=='o'){
     ade();
     delay(39000);
     der();
@@ -269,7 +269,7 @@ void loop()  {
     delay(55000);
     par();
   }
-  if(estado=='rut8'){
+  if(estado=='l'){
     ade();
     delay(77000);
     der();
@@ -278,12 +278,12 @@ void loop()  {
     delay(55000);
     par();
   }
-  if(estado=='rut9'){
+  if(estado=='p'){
     ade();
     delay(55000);
     par();
   }
-  if(estado=='rut10'){
+  if(estado=='i'){
     ade();
     delay(60000);
     der();
